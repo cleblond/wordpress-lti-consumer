@@ -280,7 +280,8 @@ class LTI_Consumer {
             'resource_link_description' => $post->post_title,
             'context_title' => get_bloginfo( 'name' ),
             'context_id' => get_bloginfo( 'home' ),
-            'roles' => 'Learner',
+            //'roles' => 'Learner',
+            'roles' => self::determineRole(),
             'user_id' => md5( get_bloginfo( 'home' ) . !empty( $current_user->ID ) ? $current_user->ID : 0 ),
             'launch_presentation_locale' => get_locale(),
             'tool_consumer_info_product_family_code' => 'wordpress',
@@ -368,5 +369,18 @@ class LTI_Consumer {
     private static function urlencodeRFC3986( $string ) { /* {{{ */
         return str_replace( '%7E', '~', rawurlencode( $string ) );
     }
+    
+    public static function determineRole() {
+        $currentuser = wp_get_current_user();
+        if (in_array('administrator', $currentuser->roles)) {
+            
+            return "Instructor";
+
+        } else {
+        
+            return "Learner";
+        }
+    }
+  
 
 }
