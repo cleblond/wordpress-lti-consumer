@@ -1,4 +1,11 @@
-## WordPress LTI Consumer Plugin
+
+
+
+
+## WordPress LTI Consumer Plugin Role Fork
+
+This is a fork of the https://github.com/ClassCube/wordpress-lti-consumer.  This fork does a check of the wordpress users role.  If the wordpress user has the administrator role, they will be registered as a "Instructor" otherwise they will be registered as a "Learner" in the LTI Provider. 
+
 A very small and simple plugin that will turn your WordPress site into an [LTI Consumer](https://www.imsglobal.org/activity/learning-tools-interoperability). 
 
 ### Installation
